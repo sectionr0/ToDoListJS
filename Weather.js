@@ -5,6 +5,7 @@ const COORDS = "coords";
 const API_KEY_WEATHER = "957210e03128b4442ba7133d78e07e7d"
 
 function getWeather(latitude, longitude) {
+    //fetch로 API 불러오기
     fetch(
         `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY_WEATHER}&units=metric`
     ).then((response) => response.json())
@@ -60,6 +61,7 @@ function loadWeather() {
 
 function init() {
     loadWeather();
+    setInterval(loadWeather, 18000000);
 }
 
 init();
